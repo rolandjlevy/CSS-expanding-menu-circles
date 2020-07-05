@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.hotspot {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle farthest-corner at 33% 33%, rgba(240, 240, 220, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
+  opacity: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+
+.circle {
+  border-radius: 50%;  
+  background:   radial-gradient(circle farthest-corner at 33% 33%, rgba(240, 240, 220, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
+  opacity: 0.7;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  transform: translate(0, 0) scale(1) rotate(0deg);
+  pointer-events: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.circle.one {
+  transform: translateX(0px);
+}
+
+.hotspot:hover ~ .circle.one {
+  transform: translateX(100px) scale(1.5) rotate(360deg);
+}
+
+.circle.two {
+  transform: translateX(-0px);
+}
+
+.hotspot:hover ~ .circle.two {
+  transform: translateX(-100px) scale(1.5) rotate(360deg);
+}
+
+.circle.three {
+  transform: translateY(0px);
+}
+
+.hotspot:hover ~ .circle.three {
+  transform: translateY(100px) scale(1.5) rotate(360deg);
+}
+
+.circle.four {
+  transform: translateY(-0px);
+}
+
+.hotspot:hover ~ .circle.four {
+  transform: translateY(-100px) scale(1.5) rotate(360deg);
+}
+
+.hotspot:hover ~ .circle {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+/* .hotspot:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.hotspot ~ .circle {
+  transform: scale(1.2)
+} */
+
+/* .hotspot ~ .circle {
+  transform: scale(1)
+}
+
+.hotspot:hover ~ .circle {
+  transform: scale(1.2)
+} */
+
+/* .hotspot:hover ~ .circle:nth-child(1) {
+  transform: translateX(50px);
+}
+
+.hotspot:hover ~ .circle:nth-child(2) {
+  transform: translateY(50px);
+} */
