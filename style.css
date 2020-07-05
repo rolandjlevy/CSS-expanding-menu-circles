@@ -1,3 +1,7 @@
+body {
+  background-color: #000;
+}
+
 :root {
   --distance: 100px;
 }
@@ -13,31 +17,50 @@
   position: relative;
 }
 
+input[type="checkbox"].btn {
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
 .hotspot, .circle {
   position: absolute;
   width: 40px;
   height: 40px;  
   border-radius: 50%;
   background:   radial-gradient(circle farthest-corner at 33% 33%, rgba(240, 240, 240, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
-  transform: translate(0, 0) scale(1.5) rotate(0deg);
   transition: all 0.5s ease-in-out;
 }
 
-.hotspot {
-  opacity: 1;
+.btn ~ .hotspot {
+  opacity: 0.7;
   cursor: pointer;
+  display: inline-block;
+  transform: translateY(18px) scale(1.5) rotate(0deg);
+  z-index: 1;
+}
+
+
+.btn:checked ~ .hotspot,
+.hotspot:hover {
+  opacity: 1;
 }
 
 .circle {
   opacity: 0;
   pointer-events: none;
+  transform: translate(0, 0) scale(0) rotate(0deg);
+  z-index: -1;
 }
 
 .circle.one {
   transform: translateX(0px);
 }
 
-.hotspot:hover ~ .circle.one {
+.btn:checked ~ .circle.one {
   --x: var(--distance);
   transform: translateX(var(--x)) scale(1.5) rotate(360deg);
 }
@@ -46,7 +69,7 @@
   transform: translateX(-0px);
 }
 
-.hotspot:hover ~ .circle.two {
+.btn:checked ~ .circle.two {
   --x: calc(var(--distance) * -1);
   transform: translateX(var(--x)) scale(1.5) rotate(360deg);
 }
@@ -55,7 +78,7 @@
   transform: translateY(0px);
 }
 
-.hotspot:hover ~ .circle.three {
+.btn:checked ~ .circle.three {
   --y: var(--distance);
   transform: translateY(var(--y)) scale(1.5) rotate(360deg);
 }
@@ -64,41 +87,12 @@
   transform: translateY(-0px);
 }
 
-.hotspot:hover ~ .circle.four {
+.btn:checked ~ .circle.four {
   --y: calc(var(--distance) * -1);
   transform: translateY(var(--y)) scale(1.5) rotate(360deg);
 }
 
-.hotspot:hover ~ .circle {
+.btn:checked ~ .circle {
   opacity: 1;
   transition: all 0.5s ease-in-out;
 }
-
-.m-b-100 {
-  margin-bottom: 200px;
-}
-
-/* .hotspot:hover {
-  cursor: pointer;
-  opacity: 1;
-}
-
-.hotspot ~ .circle {
-  transform: scale(1.2)
-} */
-
-/* .hotspot ~ .circle {
-  transform: scale(1)
-}
-
-.hotspot:hover ~ .circle {
-  transform: scale(1.2)
-} */
-
-/* .hotspot:hover ~ .circle:nth-child(1) {
-  transform: translateX(50px);
-}
-
-.hotspot:hover ~ .circle:nth-child(2) {
-  transform: translateY(50px);
-} */
