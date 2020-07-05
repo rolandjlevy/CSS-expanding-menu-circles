@@ -51,7 +51,7 @@ input[type="checkbox"].btn {
 
 .circle {
   opacity: 0;
-  pointer-events: none;
+  /* pointer-events: none; */
   transform: translate(0, 0) scale(0) rotate(0deg);
   z-index: -1;
 }
@@ -95,4 +95,10 @@ input[type="checkbox"].btn {
 .btn:checked ~ .circle {
   opacity: 1;
   transition: all 0.5s ease-in-out;
+  /* border: 3px solid greenyellow; */
 }
+
+/* .circle:hover {
+  opacity: 0.2 !important;
+  cursor: pointer;
+} */
