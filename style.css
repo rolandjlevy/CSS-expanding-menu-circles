@@ -3,7 +3,7 @@ body {
 }
 
 :root {
-  --distance: 100px;
+  --dist: 100px;
 }
 
 .container {
@@ -31,7 +31,7 @@ input[type="checkbox"].btn {
   width: 40px;
   height: 40px;  
   border-radius: 50%;
-  background:   radial-gradient(circle farthest-corner at 33% 33%, rgba(240, 240, 240, 0.85) 0%, rgba(30, 30, 40, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
+  background:   radial-gradient(circle farthest-corner at 33% 33%, rgba(255, 109, 109, 0.85) 0%, rgba(80, 3, 0, 0.85) 80%), radial-gradient(circle farthest-corner at 45% 45%, rgba(0, 0, 0, 0) 50%, #000000 80%);
   transition: all 0.5s ease-in-out;
 }
 
@@ -43,7 +43,6 @@ input[type="checkbox"].btn {
   z-index: 1;
 }
 
-
 .btn:checked ~ .hotspot,
 .hotspot:hover {
   opacity: 1;
@@ -54,48 +53,38 @@ input[type="checkbox"].btn {
   /* pointer-events: none; */
   transform: translate(0, 0) scale(0) rotate(0deg);
   z-index: -1;
+  border: 3px solid transparent;
 }
 
-.circle.one {
-  transform: translateX(0px);
-}
+.circle:nth-of-type(1) { transform: translateX(0px); }
+.circle:nth-of-type(2) { transform: translateX(-0px); }
+.circle:nth-of-type(3) { transform: translateY(0px); }
+.circle:nth-of-type(4) { transform: translateY(-0px); }
 
-.btn:checked ~ .circle.one {
-  --x: var(--distance);
+.btn:checked ~ .circle:nth-of-type(1) {
+  --x: var(--dist);
   transform: translateX(var(--x)) scale(1.5) rotate(360deg);
 }
 
-.circle.two {
-  transform: translateX(-0px);
-}
-
-.btn:checked ~ .circle.two {
-  --x: calc(var(--distance) * -1);
+.btn:checked ~ .circle:nth-of-type(2) {
+  --x: calc(var(--dist) * -1);
   transform: translateX(var(--x)) scale(1.5) rotate(360deg);
 }
 
-.circle.three {
-  transform: translateY(0px);
-}
-
-.btn:checked ~ .circle.three {
-  --y: var(--distance);
+.btn:checked ~ .circle:nth-of-type(3) {
+  --y: var(--dist);
   transform: translateY(var(--y)) scale(1.5) rotate(360deg);
 }
 
-.circle.four {
-  transform: translateY(-0px);
-}
-
-.btn:checked ~ .circle.four {
-  --y: calc(var(--distance) * -1);
+.btn:checked ~ .circle:nth-of-type(4) {
+  --y: calc(var(--dist) * -1);
   transform: translateY(var(--y)) scale(1.5) rotate(360deg);
 }
 
 .btn:checked ~ .circle {
   opacity: 1;
   transition: all 0.5s ease-in-out;
-  /* border: 3px solid greenyellow; */
+  border: 3px solid greenyellow;
 }
 
 /* .circle:hover {
